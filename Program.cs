@@ -5,7 +5,8 @@ using System.Text.Json.Serialization;
 
 var client = new HttpClient();
 
-//HttpResponseMessage response = await client.GetAsync("https://api.sportsdata.io/v4/soccer/scores/json/Competitions?key=35aec83b4f094422ab2a6a2a15cbdc58");
+string yourapikey = "babababa";
+//HttpResponseMessage response = await client.GetAsync("https://api.sportsdata.io/v4/soccer/scores/json/Competitions?key={yourapikey}");
 
 // if(response.IsSuccessStatusCode){
 
@@ -20,14 +21,14 @@ var client = new HttpClient();
     
 // }
 
-// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/Teams/1?key=35aec83b4f094422ab2a6a2a15cbdc58");
+// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/Teams/1?key={yourapikey}");
 
 // var result = JsonSerializer.Deserialize<List<Team>>(response);
 // foreach(var item in result){
 // Console.Write($"{item.TeamId}|{item.Name}|{item.City}|{item.Nickname1}\n");
 // }
 
-// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/PlayersByTeam/1/516?key=35aec83b4f094422ab2a6a2a15cbdc58");
+// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/PlayersByTeam/1/516?key={yourapikey}");
 // var result = JsonSerializer.Deserialize<List<Player>>(response);
 // foreach(var item in result){
 // Console.Write($"{item.CommonName} | {item.Jersey} \n");
@@ -35,7 +36,7 @@ var client = new HttpClient();
 
 
 
-// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/CompetitionDetails/1?key=35aec83b4f094422ab2a6a2a15cbdc58");
+// var response = await client.GetStringAsync("https://api.sportsdata.io/v4/soccer/scores/json/CompetitionDetails/1?key={yourapikey}");
 // var result = JsonSerializer.Deserialize<Root>(response);
 
 // foreach(var item in result.Games){
@@ -64,7 +65,7 @@ Thread.Sleep(1000);
 Console.Clear();
 
 
-var response = await client.GetStringAsync($"https://api.sportsdata.io/v4/soccer/scores/json/Teams/{a}?key=35aec83b4f094422ab2a6a2a15cbdc58");
+var response = await client.GetStringAsync($"https://api.sportsdata.io/v4/soccer/scores/json/Teams/{a}?key={yourapikey}");
 
 var result = JsonSerializer.Deserialize<List<Team>>(response);
 
@@ -79,7 +80,7 @@ var b = readkey();
 var id = result[b].TeamId;
 
 
-var response1 = await client.GetStringAsync($"https://api.sportsdata.io/v4/soccer/scores/json/PlayersByTeam/1/{id}?key=35aec83b4f094422ab2a6a2a15cbdc58");
+var response1 = await client.GetStringAsync($"https://api.sportsdata.io/v4/soccer/scores/json/PlayersByTeam/1/{id}?key={yourapikey}");
 var result1 = JsonSerializer.Deserialize<List<Player>>(response1);
 foreach(var item in result1){
     Console.Write(item.CommonName+"\n");
